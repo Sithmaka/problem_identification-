@@ -16,7 +16,7 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print(f"Using device: {device}")
 
 # Load Dataset
-df = pd.read_csv("augmented_problem_identification_dataset.csv")
+df = pd.read_csv("problem_identification_dataset.csv")
 
 # Text Cleaning
 def clean_text(text):
