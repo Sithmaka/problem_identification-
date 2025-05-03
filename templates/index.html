@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Problem Identifier</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f8f9fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            max-width: 600px;
+            width: 100%;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        textarea {
+            resize: none;
+            padding: 10px;
+            font-size: 16px;
+            height: 120px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+        button {
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 6px;
+            background: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Problem Identification</h1>
+    <form method="POST">
+        <textarea name="problem" placeholder="Describe your problem..." required></textarea>
+        <button type="submit">Identify Problem</button>
+    </form>
+
+    {% if prediction %}
+        <div class="result">
+            <p><strong>Predicted Category:</strong> {{ prediction }}</p>
+            <p><strong>Confidence:</strong> {{ '%.2f' % (confidence * 100) }}%</p>
+        </div>
+    {% endif %}
+</div>
+</body>
+</html>
